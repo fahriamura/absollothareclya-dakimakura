@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import tooltip styles */
+@import './tooltip.css';
+
+:root {
+  --background: #000080; /* Navy blue background */
+  --foreground: #000000;
+}
+
+/* Retro 90s/2000s Website Styles */
+body {
+  background-color: #000080;
+  color: #000000;
+  font-family: 'VT323', monospace;
+  font-size: 16px; /* Adjusted base font size */
+  background-image: url('/images/retro_bg.svg');
+  cursor: pointer;
+}
+
+/* Retro font styles */
+.font-press-start {
+  font-family: 'Press Start 2P', monospace;
+  letter-spacing: -0.05em;
+  font-size: 0.9rem; /* Adjusted size for Press Start 2P */
+}
+
+.font-vt323 {
+  font-family: 'VT323', monospace;
+  letter-spacing: 0.02em;
+  font-size: 1.1rem; /* Adjusted size for VT323 */
+}
+
+.font-silkscreen {
+  font-family: 'Silkscreen', monospace;
+  letter-spacing: 0.01em;
+  font-size: 1rem; /* Adjusted size for Silkscreen */
+}
+
+@layer components {
+  /* Blinking text animation */
+  .blink {
+    animation: blinker 1s linear infinite;
+  }
+
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  /* Loading animations */
+  .loading-bar {
+    background: linear-gradient(90deg, #4a90e2, #63b3ed, #4a90e2);
+    background-size: 200% 100%;
+    animation: loading-bar-animation 2s linear infinite;
+  }
+
+  @keyframes loading-bar-animation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+
+  /* Rainbow text effect */
+  .rainbow-text {
+    background-image: linear-gradient(to right,
+      #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #8B00FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow 5s linear infinite;
+  }
+
+  @keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+
+  /* Marquee animation */
+  .marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 15s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* Border styles */
+  .border-inset {
+    border-style: inset;
+  }
+
+  .border-outset {
+    border-style: outset;
+  }
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #c0c0c0;
+  border: 1px inset #808080;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #808080;
+  border: 1px outset #c0c0c0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #606060;
+}
